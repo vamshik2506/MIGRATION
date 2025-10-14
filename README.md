@@ -12,7 +12,7 @@ The migration includes:
 ## 🏗️ Architecture Overview
 
 **Source Database:** MySQL (hosted on EC2 instance or RDS)  
-**Target Database:** MySQL (on another EC2 instance or RDS)  
+**Target Database:** MySQL (on RDS)  
 **Migration Tool:** AWS Database Migration Service (DMS)
 
 ---
