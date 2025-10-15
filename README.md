@@ -43,6 +43,9 @@ The migration includes:
 
 ### 🧩 Step 1: Create Source and Target MySQL Databases
 
+### Step 1: Create Source and Target MySQL Databases
+
+```sql
 -- Connect to MySQL
 mysql -u root -p;
 
@@ -66,7 +69,6 @@ VALUES
   ('Alice Smith', 'HR', 55000),
   ('Bob Lee', 'Finance', 70000);
 
----
 
 ### 🧠 Step 2: Enable Binary Logging for CDC
 
