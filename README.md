@@ -190,7 +190,7 @@ In AWS DMS Console → **Replication Instances → Create**:
 | Turn on CloudWatch logs | ✅ Enabled |
 | Batch optimized apply | ✅ Enabled |
 
-####Table Mapping JSON
+#### Table Mapping JSON
 
 ```json
 {
