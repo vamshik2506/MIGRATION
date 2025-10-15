@@ -43,29 +43,28 @@ The migration includes:
 
 ### 🧩 Step 1: Create Source and Target MySQL Databases
 
-Connect to MySQL
-mysql -u root -p
+-- Connect to MySQL
+mysql -u root -p;
 
-Create source and target databases
+-- Create source and target databases
 CREATE DATABASE source_db;
 CREATE DATABASE target_db;
 
-Create a sample table in source
+-- Create a sample table in source
 USE source_db;
 CREATE TABLE employees (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(50),
-department VARCHAR(50),
-salary INT
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50),
+  department VARCHAR(50),
+  salary INT
 );
 
-Insert sample data
+-- Insert sample data
 INSERT INTO employees (name, department, salary)
 VALUES
-('John Doe', 'IT', 60000),
-('Alice Smith', 'HR', 55000),
-('Bob Lee', 'Finance', 70000);
-
+  ('John Doe', 'IT', 60000),
+  ('Alice Smith', 'HR', 55000),
+  ('Bob Lee', 'Finance', 70000);
 
 ---
 
