@@ -68,25 +68,15 @@ VALUES
   ('John Doe', 'IT', 60000),
   ('Alice Smith', 'HR', 55000),
   ('Bob Lee', 'Finance', 70000);
+```
 
-
-### 🧠 Step 2: Enable Binary Logging for CDC
+### 🧩 Step 2: Enable Binary Logging for CDC
 
 Enable **Change Data Capture (CDC)** by configuring binary logs in MySQL on the **source EC2 instance**.
 
+```bash
+# Edit MySQL configuration file
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
-
-
-Add or update the following lines under `[mysqld]`:
-
-[mysqld]
-server-id = 1
-log_bin = mysql-bin
-binlog_format = ROW
-binlog_row_image = FULL
-expire_logs_days = 10
-binlog_checksum = NONE
-
 
 Restart MySQL:
 
