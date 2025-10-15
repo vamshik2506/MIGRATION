@@ -48,6 +48,7 @@ VALUES
 ('Alice Smith', 'HR', 55000),
 ('Bob Lee', 'Finance', 70000);
 
+text
 
 ---
 
@@ -57,6 +58,7 @@ Enable **Change Data Capture (CDC)** by configuring binary logs in MySQL on the 
 
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 
+text
 
 Add or update the following lines under `[mysqld]`:
 
@@ -68,16 +70,19 @@ binlog_row_image = FULL
 expire_logs_days = 10
 binlog_checksum = NONE
 
+text
 
 Restart MySQL:
 
 sudo systemctl restart mysql
 
+text
 
 Verify Binary Logging:
 
 mysql -u root -p -e "SHOW VARIABLES LIKE 'log_bin';"
 
+text
 
 ---
 
@@ -90,6 +95,7 @@ CREATE USER 'dms_user'@'%' IDENTIFIED BY 'DmsUser@123';
 GRANT ALL PRIVILEGES ON . TO 'dms_user'@'%' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 
+text
 
 ---
 
@@ -199,6 +205,7 @@ mysql -u root -p
 USE target_db;
 SELECT * FROM employees;
 
+text
 
 ✅ You should see all the data from the source.
 
@@ -212,6 +219,7 @@ VALUES ('Charlie', 'Marketing', 65000);
 USE target_db;
 SELECT * FROM employees;
 
+text
 
 ✅ The new record appears instantly — confirming CDC replication is active.
 
@@ -226,6 +234,7 @@ SET GLOBAL net_read_timeout = 600;
 SET GLOBAL net_write_timeout = 600;
 SET GLOBAL wait_timeout = 600;
 
+text
 
 Make these permanent in `/etc/mysql/mysql.conf.d/mysqld.cnf`:
 
@@ -233,11 +242,13 @@ net_read_timeout = 600
 net_write_timeout = 600
 wait_timeout = 600
 
+text
 
 Restart MySQL:
 
 sudo systemctl restart mysql
 
+text
 
 ---
 
@@ -248,6 +259,3 @@ sudo systemctl restart mysql
 - Continuous sync from EC2 MySQL → RDS MySQL  
 
 Once verified, the old EC2 instance can be safely decommissioned.
-
-
-
