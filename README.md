@@ -190,6 +190,24 @@ In AWS DMS Console → **Replication Instances → Create**:
 | Turn on CloudWatch logs | ✅ Enabled |
 | Batch optimized apply | ✅ Enabled |
 
+####Table Mapping JSON
+
+```json
+{
+  "rules": [
+    {
+      "rule-type": "selection",
+      "rule-id": "1",
+      "rule-name": "include-jobportal",
+      "object-locator": {
+        "schema-name": "jobportal",
+        "table-name": "%"
+      },
+      "rule-action": "include"
+    }
+  ]
+}
+```
 ---
 
 ### ▶️ Step 8: Start Migration Task
